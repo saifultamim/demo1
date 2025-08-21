@@ -7,7 +7,7 @@ function AboutPage() {
 
          <button className="bg-gray-300 px-6 py-3 font-bold rounded-lg mt-7 ">about23</button>
             <button className="bg-gray-300 px-6 py-3 font-bold rounded-lg mt-7 ">about23</button>
-           <h2>about page </h2>
+           <h2>about page2 </h2>
             <h2>about page </h2>
     </div>
   )
