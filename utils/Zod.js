@@ -12,7 +12,7 @@ export const registrationSchema = z
       .string({ required_error: "Mobile number is required" })
       .min(1, "Mobile number is required")
       .regex(phoneNumberRegex, "Invalid number")
-      .refine((val) => val.length === 11 || val.length === 13, {
+      .refine((val) => val.length === 11 || val.length === 13 || val.length === 10 , {
         message: "Invalid number",
       }),
     xstuemail: z.string().email("Invalid email address"),
@@ -29,8 +29,8 @@ export const registrationSchema = z
     xgurdianmobile: z
       .string()
       .refine((val) => val === "" || phoneNumberRegex.test(val), "Invalid number")
-      .refine((val) => val.length === 0 || val.length === 11 || val.length === 13, {
-        message: "Invalid number",
+      .refine((val) => val.length === 0 || val.length === 11 || val.length === 13 || val.length === 10 , {
+        message: "Invalid Number",
       })
       .optional(),
     xaddress: z.string().optional(),
@@ -39,8 +39,13 @@ export const registrationSchema = z
     xdistrict: z.string().optional(),
     xcountry: z.string().optional(),
     xsex: z.string().optional(),
+    xmobile:z.string({required_error:"Number should be at least 11 characters"})
   })
   .refine((data) => data.xpassword === data.xcpassword, {
     message: "Passwords don't match",
-    path: ["xcpassword"], 
+    path: ["xcpasswrd"], 
+  })
+  .refine((data)=> data.xnumber===data.xcnumber,{
+    message:"Number don't match",
+    path:["xcnumber"]
   });
