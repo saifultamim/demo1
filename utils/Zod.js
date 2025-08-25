@@ -9,10 +9,10 @@ export const registrationSchema = z
     bizid: z.number().optional(),
     xstuname: z.string().min(2, "Name must be at least 2 characters"),
     xmobile: z
-      .string({ required_error: "Mobile number is required" })
+      .string({ required_error: "Mobile number is requierd" })
       .min(1, "Mobile number is required")
       .regex(phoneNumberRegex, "Invalid number")
-      .refine((val) => val.length === 11 || val.length === 13 || val.length === 10 , {
+      .refine((val) => val.length === 11 || val.length === 13 || val.length === 10 || val.length === 14 , {
         message: "Invalid number",
       }),
     xstuemail: z.string().email("Invalid email address"),
