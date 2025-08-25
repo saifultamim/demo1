@@ -1,4 +1,4 @@
 
 function sample () {
-    console.log('sample events')
+    console.log('sample login')
 }
